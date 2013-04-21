@@ -13,12 +13,11 @@ public class App {
 	}
 	public static void main(String[] args) {
 		RealMatrix matrix = new Array2DRowRealMatrix(new double[][]{
-				{1,0,1,1,0,1,0},
-				{0,1,0,1,1,1,1},
-				{0,0,1,0,1,1,0},
-				{1,0,0,1,1,1,0},
-				{0,1,1,1,1,0,1},
-				{1,0,1,0,1,0,0}
+				{1,0,1,1,0},
+				{0,1,0,0,0},
+				{1,0,1,0,0},
+				{0,1,0,0,0},
+				{0,1,0,0,0}
 		});
 		RealMatrix matrix2 = new Array2DRowRealMatrix(new double[][]{{1,0,0},{0,0,0},{0,0,1}});
 //		RealMatrix start = swapRow(swapCol(matrix, 0, 3), 1, 2);
@@ -29,7 +28,7 @@ public class App {
 		System.out.println(permutate(Arrays.asList(1,2,3,4)).size());
 	}
 
-	private static RealMatrix optimize(RealMatrix start) {
+	public static RealMatrix optimize(RealMatrix start) {
 		RealMatrix optimizeCols = optimizeCols(start);
 //		pprint(optimizeCols);
 		RealMatrix optimize = optimizeRows(optimizeCols);
@@ -143,7 +142,7 @@ public class App {
 		return ret;
 	}
 
-	private static void pprint(RealMatrix matrix) {
+	public static void pprint(RealMatrix matrix) {
 		System.out.println("------------");
 		for(int row = 0, n = matrix.getRowDimension(); row < n; row++) {
 			double[] r = matrix.getRow(row);
